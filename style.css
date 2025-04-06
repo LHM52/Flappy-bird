@@ -1,0 +1,93 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.bg-black {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+}
+#btn-start {
+    width: 100px;
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.game-container {
+    width: 100%;
+    max-width: 1000px;
+    height: 100vh;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+.game-container img {
+    position: absolute;
+    width: 100%;
+    height: 150%;
+}
+.score {
+    position: absolute;
+    font-size: 3rem;
+    padding: 20px;
+    z-index: 1;
+}
+
+.bird {
+    width: 100px;
+    height: 75px;
+    position: absolute;
+    left: 150px;
+    top: 250px;
+    /* background-image: url(imgs/Sprite-0001.png); */
+    background-repeat: no-repeat;
+}
+.bird img {
+    width: 100%;
+    height: 100%;
+}
+
+.wall {
+    width: 150px;
+    height: 150%;
+    position: absolute;
+    top: 0px;
+    right: -300px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.pipe1 {
+    width: 75%;
+    flex: 2;
+    background-image: url(imgs/Sprite-0002.png);
+    background-repeat: no-repeat;
+    transform: scaleY(-1);
+}
+.pipeimg {
+    width: 75%;
+}
+
+.scoreBlock {
+    width: 25%;
+    flex: 1;
+    /* background-color: darkblue; */
+}
+
+.pipe2 {
+    width: 75%;
+    flex: 2;
+    background-image: url(imgs/pipe.png);
+    background-repeat: no-repeat;
+}
