@@ -2,7 +2,9 @@ const bird = document.getElementById('bird'),
     score = document.getElementById('score'),
     gameContainer = document.getElementById('game-container'),
     start = document.getElementById('btn-start'),
-    bg = document.querySelector('.bg-black');
+    bg1 = document.querySelector('.bg-black1'),
+    bg2 = document.querySelector('.bg-black2'),
+    bgRe = document.querySelector('#btn-restart');
 
 let scoreUpdate = 0,
     y = 0,
@@ -16,10 +18,11 @@ let scoreUpdate = 0,
 // 벽을 관리할 배열
 let wallArr = [];
 
+
 start.addEventListener('click', function () {
 
     start.remove();
-    bg.remove();
+    bg1.style.display = 'none';
 
     function gameLoop() {
         timer++;
@@ -60,13 +63,16 @@ start.addEventListener('click', function () {
                 cancelAnimationFrame(frame);
                 alert(`벽에 닿았습니다! 게임오버! 
 점수 : ${scoreUpdate} 점`);
-
+bgRe.style.display = 'block';
+bg2.style.display = 'block';
             }
         });
         if (y >= 1000) {
             cancelAnimationFrame(frame);
             alert(`떨어져 죽엇습니다! 게임오버! 
 점수 : ${scoreUpdate} 점`);
+            bgRe.style.display = 'block';
+            bg2.style.display = 'block';
         }
     }
 
@@ -128,7 +134,7 @@ start.addEventListener('click', function () {
     }
 
     function Difficulty() {
-        if(scoreUpdate === 10) {
+        if (scoreUpdate === 10) {
             lvlGameSpeed = 2;
         }
         else if (scoreUpdate === 15) {
@@ -171,6 +177,9 @@ start.addEventListener('click', function () {
         if (e.code === "Space") {
             isJumping = true;
         }
+    });
+    bgRe.addEventListener('click', function() {
+        location.reload();
     });
 
     // 게임 루프 시작
