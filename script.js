@@ -9,6 +9,7 @@ let scoreUpdate = 0,
     Jumping = 0,
     timer = 0,
     lvlSpeedFrame = 360,
+    lvlGameSpeed = 1.5,
     isJumping = false,
     isScore = false;
 
@@ -35,6 +36,19 @@ start.addEventListener('click', function () {
                 wallArr.splice(index, 1); // 벽이 화면을 벗어나면 배열에서 제거
             }
         });
+
+        if(scoreUpdate === 10) {
+            lvlGameSpeed = 2;
+        }
+        else if (scoreUpdate === 15) {
+            lvlGameSpeed = 3;
+        }
+        else if (scoreUpdate === 20) {
+            lvlGameSpeed = 3.5
+        }
+        else if (scoreUpdate === 25) {
+            lvlGameSpeed = 4
+        }
 
         jump();
 
@@ -99,7 +113,7 @@ start.addEventListener('click', function () {
             pipe2: pipe2,
             scoreBlock: scoreBlock,
             move: function () {
-                this.right += 1.5;
+                this.right += lvlGameSpeed;
                 this.element.style.right = this.right + "px";
                 this.element.style.top = randomTop + "px";
             }
