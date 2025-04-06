@@ -37,19 +37,7 @@ start.addEventListener('click', function () {
             }
         });
 
-        if(scoreUpdate === 10) {
-            lvlGameSpeed = 2;
-        }
-        else if (scoreUpdate === 15) {
-            lvlGameSpeed = 3;
-        }
-        else if (scoreUpdate === 20) {
-            lvlGameSpeed = 3.5
-        }
-        else if (scoreUpdate === 25) {
-            lvlGameSpeed = 4
-        }
-
+        Difficulty();
         jump();
 
         let frame = requestAnimationFrame(gameLoop);
@@ -136,6 +124,32 @@ start.addEventListener('click', function () {
         if (Jumping > 50) {
             isJumping = false;
             Jumping = 0;
+        }
+    }
+
+    function Difficulty() {
+        if(scoreUpdate === 10) {
+            lvlGameSpeed = 2;
+        }
+        else if (scoreUpdate === 15) {
+            lvlGameSpeed = 3;
+        }
+        else if (scoreUpdate === 20) {
+            lvlGameSpeed = 3.5;
+        }
+        else if (scoreUpdate === 25) {
+            lvlSpeedFrame = 240;
+            lvlGameSpeed = 4;
+        }
+        else if (scoreUpdate === 30) {
+            lvlGameSpeed = 4.5;
+        }
+        else if (scoreUpdate === 40) {
+            lvlSpeedFrame = 200;
+            lvlGameSpeed = 5;
+        }
+        else if (scoreUpdate === 50) {
+            lvlGameSpeed = 5.5;
         }
     }
 
