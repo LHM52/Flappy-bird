@@ -63,11 +63,11 @@ start.addEventListener('click', function () {
                 cancelAnimationFrame(frame);
                 alert(`벽에 닿았습니다! 게임오버! 
 점수 : ${scoreUpdate} 점`);
-bgRe.style.display = 'block';
-bg2.style.display = 'block';
+                bgRe.style.display = 'block';
+                bg2.style.display = 'block';
             }
         });
-        if (y >= 1000) {
+        if (y >= 3000) {
             cancelAnimationFrame(frame);
             alert(`떨어져 죽엇습니다! 게임오버! 
 점수 : ${scoreUpdate} 점`);
@@ -178,7 +178,7 @@ bg2.style.display = 'block';
             isJumping = true;
         }
     });
-    bgRe.addEventListener('click', function() {
+    bgRe.addEventListener('click', function () {
         location.reload();
     });
 
