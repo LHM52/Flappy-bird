@@ -93,7 +93,7 @@ start.addEventListener('click', function () {
         // 벽 객체
         const wall = {
             element: newWall,
-            right: 0,  // 벽의 초기 위치
+            right: -200,  // 벽의 초기 위치
             top: 0, // 랜덤 높이 설정
             pipe1: pipe1,
             pipe2: pipe2,
