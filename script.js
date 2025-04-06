@@ -44,7 +44,7 @@ start.addEventListener('click', function () {
         wallArr.forEach((wall) => {
             if (!isScore && checkCollision(bird, wall.scoreBlock)) {
                 scoreUpdate++;
-                score.textContent = scoreUpdate;
+                score.textContent = `현재 점수 : ${scoreUpdate}`;
                 isScore = true;
                 setTimeout(() => {
                     isScore = false;
