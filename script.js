@@ -100,7 +100,7 @@ start.addEventListener('click', function () {
 
         gameContainer.appendChild(newWall);
 
-        const randomTop = Math.floor(Math.random() * (-100 - (-400) + 1)) + -300;
+        const randomTop = Math.floor(Math.random() * (301)) - 400;
 
         // 벽 객체
         const wall = {
