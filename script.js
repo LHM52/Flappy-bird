@@ -15,6 +15,10 @@ let scoreUpdate = 0,
     isJumping = false,
     isScore = false;
 
+let velocity = 0;
+let gravity = 0.1;
+let jumpPower = -4;
+
 // 벽을 관리할 배열
 let wallArr = [];
 
@@ -96,7 +100,7 @@ start.addEventListener('click', function () {
 
         gameContainer.appendChild(newWall);
 
-        const randomTop = Math.floor(Math.random() * (50 + 300)) + -400;
+        const randomTop = Math.floor(Math.random() * (-100 - (-400) + 1)) + -300;
 
         // 벽 객체
         const wall = {
@@ -119,18 +123,9 @@ start.addEventListener('click', function () {
 
     // 점프 함수
     function jump() {
-        if (!isJumping) {
-            y += 2;
-            bird.style.top = y + "px";
-        } else {
-            y -= 2;
-            bird.style.top = y + "px";
-            Jumping++;
-        }
-        if (Jumping > 50) {
-            isJumping = false;
-            Jumping = 0;
-        }
+        velocity += gravity;      // 중력 적용
+        y += velocity;            // 속도에 따라 위치 변경
+        bird.style.top = y + "px";
     }
 
     function Difficulty() {
@@ -157,6 +152,10 @@ start.addEventListener('click', function () {
         else if (scoreUpdate === 50) {
             lvlGameSpeed = 5.5;
         }
+        else if (scoreUpdate === 60) {
+            lvlSpeedFrame = 180;
+            lvlGameSpeed = 5.5;
+        }
     }
 
     // 충돌 체크 함수 (각 벽의 pipe1 또는 pipe2와 충돌을 체크하는 부분)
@@ -175,7 +174,7 @@ start.addEventListener('click', function () {
     // 키 입력 처리
     document.addEventListener("keydown", function (e) {
         if (e.code === "Space") {
-            isJumping = true;
+            velocity = jumpPower;
         }
     });
     bgRe.addEventListener('click', function () {
